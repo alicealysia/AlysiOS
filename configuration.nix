@@ -29,6 +29,7 @@
         alsa.support32Bit = true;
         pulse.enable = true;
     };
+    virtualisation.graphics = setupInfo.isVM;
     nixpkgs.config.allowUnfree = true;
     services.qemuGuest.enable = setupInfo.isVM;
     services.spice-vdagentd.enable = setupInfo.isVM;
