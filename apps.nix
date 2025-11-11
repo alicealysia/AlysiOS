@@ -22,8 +22,6 @@
         fishPlugins.tide
         wezterm
         vscodium
-        home-manager
-        quickshell
         catppuccin-cursors
         kanshi
         kubectl

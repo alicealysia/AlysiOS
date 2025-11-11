@@ -1,8 +1,14 @@
 {
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
-    home-manager.url = "./home-manager";
-    emacs.url = "./emacs";
+    home-manager = {
+      url = "./home-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    emacs = {
+      url = "./emacs";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = inputs :

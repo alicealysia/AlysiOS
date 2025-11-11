@@ -1,24 +1,37 @@
 {
     inputs = {
-        home-manager.url = "github:nix-community/home-manager";
-        stylix.url = "github:nix-community/stylix";
-        niri.url = "github:sodiboo/niri-flake";
+        nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
+        home-manager = {
+            url = "github:nix-community/home-manager";
+            inputs.nixpkgs.follows = "nixpkgs";
+        };
+        stylix = {
+            url = "github:nix-community/stylix";
+            inputs.nixpkgs.follows = "nixpkgs";
+        };
+        niri = {
+            url = "github:sodiboo/niri-flake";
+            inputs.stylix.follows = "stylix";
+            inputs.home-manager.follows = "home-manager";
+        };
         dgop = {
             url = "github:AvengeMedia/dgop";
+            inputs.nixpkgs.follows = "nixpkgs";
         };
 
         dms-cli = {
             url = "github:AvengeMedia/danklinux";
+            inputs.nixpkgs.follows = "nixpkgs";
         };
 
         dankMaterialShell = {
             url = "github:AvengeMedia/DankMaterialShell";
+            inputs.niri.follows = "niri";
             inputs.dgop.follows = "dgop";
             inputs.dms-cli.follows = "dms-cli";
         };
     };
     outputs = { self, home-manager, stylix, niri, dgop, dms-cli, dankMaterialShell, ... } : let
-        userList = import ./users.nix;
         homeModules = [
             stylix.homeModules.stylix
             niri.homeModules.niri
@@ -39,16 +52,20 @@
                     enableCalendarEvents = true;       # Calendar integration (khal)
                     enableSystemSound = true;          # System sound effects
                 };
+                systemd.user.startServices = true;
             }
             ./keyboard-shortcuts.nix
             ./variables.nix
         ];
     in {
-        inherit homeModules;
         nixosModules = {
             home-manager = home-manager.nixosModules.default;
             greeter = dankMaterialShell.nixosModules.greeter;
-            default = {pkgs, ...} : {
+            default = {pkgs, lib, ...} : let 
+                usersDir = builtins.readDir ./users;
+                homelist = builtins.mapAttrs (name: value: import ./users/${name}/home.nix) usersDir;
+                accountlist = builtins.mapAttrs (name: value: import ./users/${name}/account.nix) usersDir;
+            in {
                 nixpkgs.overlays = [
                     niri.overlays.niri
                 ];
@@ -59,9 +76,8 @@
                     compositor.name = "niri";
                 };
                 home-manager.sharedModules = homeModules;
-                users.users = userList;
-                #home-manager.users = builtins.mapAttrs (name: value: import ./${name}-cfg/home.nix ) userList;
-                home-manager.users.alice = {};
+                users.users = accountlist;
+                home-manager.users = homelist;
             };
         };
     };

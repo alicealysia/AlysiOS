@@ -29,15 +29,12 @@
         alsa.support32Bit = true;
         pulse.enable = true;
     };
-    virtualisation.graphics = setupInfo.isVM;
     nixpkgs.config.allowUnfree = true;
-    services.qemuGuest.enable = setupInfo.isVM;
-    services.spice-vdagentd.enable = setupInfo.isVM;
-    services.displayManager.sddm = {
-        enable = true;
-        wayland.enable = true;
-    };
-    hardware.graphics.enable = true;
+#     services.displayManager.sddm = {
+#         enable = true;
+#         wayland.enable = true;
+#     };
+    #hardware.graphics.enable = true;
     programs.fish.enable = true;
     programs.bash.promptInit = ''
         if [[ $(${pkgs.procps}/bin/ps --no-header --pid=$PPID --format=comm) != "fish" && -z ''${BASH_EXECUTION_STRING} ]]
