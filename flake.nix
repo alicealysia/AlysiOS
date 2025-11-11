@@ -31,8 +31,8 @@
   };
   in {
     nixosConfigurations = {
-      vm = cfg;
       "${setupInfo.hostname}" = cfg;
+      "nixos" = cfg;
     };
   };
 }

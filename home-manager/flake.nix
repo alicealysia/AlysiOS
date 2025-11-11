@@ -11,8 +11,6 @@
         };
         niri = {
             url = "github:sodiboo/niri-flake";
-            inputs.stylix.follows = "stylix";
-            inputs.home-manager.follows = "home-manager";
         };
         dgop = {
             url = "github:AvengeMedia/dgop";
@@ -26,7 +24,6 @@
 
         dankMaterialShell = {
             url = "github:AvengeMedia/DankMaterialShell";
-            inputs.niri.follows = "niri";
             inputs.dgop.follows = "dgop";
             inputs.dms-cli.follows = "dms-cli";
         };
