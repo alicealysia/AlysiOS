@@ -48,7 +48,7 @@
         nixosModules = {
             home-manager = home-manager.nixosModules.default;
             greeter = dankMaterialShell.nixosModules.greeter;
-            default = {inputs, pkgs, ...} : {
+            default = {pkgs, ...} : {
                 nixpkgs.overlays = [
                     niri.overlays.niri
                 ];
@@ -58,10 +58,10 @@
                     enable = true;
                     compositor.name = "niri";
                 };
-                services.greetd.enable = true;
                 home-manager.sharedModules = homeModules;
                 users.users = userList;
-                home-manager.users = builtins.mapAttrs (name: value: import ./${name}-cfg/home.nix ) userList;
+                #home-manager.users = builtins.mapAttrs (name: value: import ./${name}-cfg/home.nix ) userList;
+                home-manager.users.alice = {};
             };
         };
     };

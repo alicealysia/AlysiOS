@@ -28,5 +28,6 @@
         kanshi
         kubectl
         opam
+        xdg-desktop-portal-gtk
     ];
 }

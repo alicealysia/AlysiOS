@@ -33,6 +33,10 @@
     nixpkgs.config.allowUnfree = true;
     services.qemuGuest.enable = setupInfo.isVM;
     services.spice-vdagentd.enable = setupInfo.isVM;
+    services.displayManager.sddm = {
+        enable = true;
+        wayland.enable = true;
+    };
     hardware.graphics.enable = true;
     programs.fish.enable = true;
     programs.bash.promptInit = ''
@@ -43,7 +47,7 @@
         fi
     '';
     # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-    system.stateVersion = "25.05"; # Did you read the comment?
+    system.stateVersion = "25.11"; # Did you read the comment?
     nix.settings.experimental-features = [ "nix-command" "flakes" ];
     nix.nixPath = [
         "nixpkgs=${inputs.nixpkgs}"

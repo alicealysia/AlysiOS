@@ -5,4 +5,5 @@
     keyboardLayout = "au";
     keyboardVariant = "";
     isVM = true;
+    defaultUser = "alice";
 }
