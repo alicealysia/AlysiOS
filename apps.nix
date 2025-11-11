@@ -2,7 +2,9 @@
     environment.systemPackages = with pkgs; [
         # add any apps from https://search.nixos.org/packages?channel=unstable to a new line below
 
-        # e.g.
+      # e.g.
+        emacs-pgtk
+        cachix
         nautilus
         hyprpicker
         wl-clipboard
@@ -20,7 +22,7 @@
         nerd-fonts.ubuntu
         firefox
         fishPlugins.tide
-        wezterm
+        kdePackages.konsole
         vscodium
         catppuccin-cursors
         kanshi
