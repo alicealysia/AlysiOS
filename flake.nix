@@ -22,6 +22,7 @@
     modules = [
       ./configuration.nix
       ./apps.nix
+      ./hardware-configuration.nix
       inputs.emacs.nixosModules.default
       inputs.home-manager.nixosModules.home-manager
       inputs.home-manager.nixosModules.greeter

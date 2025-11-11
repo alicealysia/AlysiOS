@@ -34,7 +34,7 @@
 #         enable = true;
 #         wayland.enable = true;
 #     };
-    #hardware.graphics.enable = true;
+    hardware.graphics.enable = true;
     programs.fish.enable = true;
     programs.bash.promptInit = ''
         if [[ $(${pkgs.procps}/bin/ps --no-header --pid=$PPID --format=comm) != "fish" && -z ''${BASH_EXECUTION_STRING} ]]
