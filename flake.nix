@@ -17,6 +17,8 @@
       ./configuration.nix
       ./apps.nix
       inputs.emacs.nixosModules.default
+      inputs.home-manager.nixosModules.home-manager
+      inputs.home-manager.nixosModules.greeter
       inputs.home-manager.nixosModules.default
     ];
     system = "x86_64-linux";

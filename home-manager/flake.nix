@@ -17,18 +17,18 @@
             inputs.dms-cli.follows = "dms-cli";
         };
     };
-    outputs = inputs : let
+    outputs = { self, home-manager, stylix, niri, dgop, dms-cli, dankMaterialShell, ... } : let
         userList = import ./users.nix;
         homeModules = [
-            inputs.stylix.homeModules.stylix
-            inputs.niri.homeModules.niri
-            inputs.dankMaterialShell.homeModules.dankMaterialShell.default
-            inputs.dankMaterialShell.homeModules.dankMaterialShell.niri
+            stylix.homeModules.stylix
+            niri.homeModules.niri
+            dankMaterialShell.homeModules.dankMaterialShell.default
+            dankMaterialShell.homeModules.dankMaterialShell.niri
             {
                 home.stateVersion = "25.11";
                 programs.dankMaterialShell = {
                     enable = true;
-                    enableSystemd = true;              # Systemd service for auto-start
+                    systemd.enable = true;             # Systemd service for auto-start
                     enableSystemMonitoring = true;     # System monitoring widgets (dgop)
                     enableClipboard = true;            # Clipboard history manager
                     enableVPN = true;                  # VPN management widget
@@ -45,24 +45,24 @@
         ];
     in {
         inherit homeModules;
-        nixosModules.default = {inputs, pkgs, ...} : {
-            imports = [
-                inputs.home-manager.nixosModules.home-manager
-                inputs.dankMaterialShell.nixosModules.greeter
-            ];
-            nixpkgs.overlays = [
-                inputs.niri.overlays.niri
-            ];
-            programs.niri.package = pkgs.niri-unstable;
-            programs.niri.enable = true;
-            programs.dankMaterialShell.greeter = {
-                enable = true;
-                compositor.name = "niri";
+        nixosModules = {
+            home-manager = home-manager.nixosModules.default;
+            greeter = dankMaterialShell.nixosModules.greeter;
+            default = {inputs, pkgs, ...} : {
+                nixpkgs.overlays = [
+                    niri.overlays.niri
+                ];
+                programs.niri.package = pkgs.niri-unstable;
+                programs.niri.enable = true;
+                programs.dankMaterialShell.greeter = {
+                    enable = true;
+                    compositor.name = "niri";
+                };
+                services.greetd.enable = true;
+                home-manager.sharedModules = homeModules;
+                users.users = userList;
+                home-manager.users = builtins.mapAttrs (name: value: import ./${name}-cfg/home.nix ) userList;
             };
-            services.greetd.enable = true;
-            home-manager.sharedModules = homeModules;
-            users.users = userList;
-            home-manager.users = builtins.mapAttrs (name: value: import ./${name}-cfg/home.nix ) userList;
         };
     };
 }
