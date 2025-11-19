@@ -87,6 +87,10 @@
             doCheck = false;
           });
         };
+        programs.dankMaterialShell = {
+          enable = true;
+          quickshell.package = pkgs.quickshell; # or your custom package
+        };
         programs.dankMaterialShell.greeter = {
           enable = true;
           compositor.name = "niri";
