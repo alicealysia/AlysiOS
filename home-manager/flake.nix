@@ -48,7 +48,6 @@
         enableAudioWavelength = true;      # Audio visualizer (cava)
         enableCalendarEvents = true;       # Calendar integration (khal)
         enableSystemSound = true;          # System sound effects
-        quickshell.package = pkgs.quickshell;
       };
       systemd.user.startServices = true;
       home.file.".emacs.d" = {
