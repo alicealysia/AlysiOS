@@ -34,7 +34,7 @@
     niri.homeModules.niri
     dankMaterialShell.homeModules.dankMaterialShell.default
     dankMaterialShell.homeModules.dankMaterialShell.niri
-    ({...}: {
+    ({config, ...}: {
       home.stateVersion = "25.05";
       programs.dankMaterialShell = {
         enable = true;
@@ -51,7 +51,7 @@
       };
       systemd.user.startServices = true;
       home.file.".emacs.d" = {
-        source = home-manager.mkOutOfStoreSymlink ./emacs;
+        source = config.lib.file.mkOutOfStoreSymlink ./emacs;
       };
     })
     ./keyboard-shortcuts.nix
