@@ -24,8 +24,8 @@
 
     dankMaterialShell = {
       url = "github:AvengeMedia/DankMaterialShell";
+      inputs.nixpkgs.follows = "nixpkgs";
       inputs.dgop.follows = "dgop";
-      inputs.dms-cli.follows = "dms-cli";
     };
   };
   outputs = { self, home-manager, stylix, niri, dgop, dms-cli, dankMaterialShell, ... } : let
@@ -71,7 +71,7 @@
           ];
           programs.niri = {
             enable = true;
-            package = pkgs.niri-unstable.overrideAttrs (o: {
+            package = pkgs.niri.overrideAttrs (o: {
               doCheck = false;
             });
           };
