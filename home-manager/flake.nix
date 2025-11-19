@@ -49,6 +49,10 @@
         enableCalendarEvents = true;       # Calendar integration (khal)
         enableSystemSound = true;          # System sound effects
         quickshell.package = pkgs.quickshell;
+        greeter = {
+          enable = true;
+          compositor.name = "niri";
+        };
       };
       systemd.user.startServices = true;
       home.file.".emacs.d" = {
@@ -87,10 +91,6 @@
           package = pkgs.niri-unstable.overrideAttrs (o: {
             doCheck = false;
           });
-        };
-        programs.dankMaterialShell.greeter = {
-          enable = true;
-          compositor.name = "niri";
         };
         home-manager.sharedModules = homeModules;
         users.users = accountlist;
