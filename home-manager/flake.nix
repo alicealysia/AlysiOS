@@ -49,10 +49,6 @@
         enableCalendarEvents = true;       # Calendar integration (khal)
         enableSystemSound = true;          # System sound effects
         quickshell.package = pkgs.quickshell;
-        greeter = {
-          enable = true;
-          compositor.name = "niri";
-        };
       };
       systemd.user.startServices = true;
       home.file.".emacs.d" = {
