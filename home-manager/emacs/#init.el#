@@ -1,0 +1,92 @@
+;;; init.el -- Visual Emacs, a visual template for your configuration. -*- lexical-binding: t; -*-
+;;; Commentary:
+;; ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡀⢤⡰⡔⣕⢵⡹⣪⢣⢇⢧⢲⠤⡄⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+;; ⠀⠀⠀⠀⠀⠀⠀⡠⡢⣳⢹⡱⣕⢝⢮⢺⢜⢎⢗⡝⣕⢗⢝⡺⡜⣎⢦⢠⠀⠀⠀⠀⠀⠀⠀
+;; ⠀⠀⠀⠀⠀⣄⢧⡫⡺⣪⢣⡳⣕⢝⡎⡧⣫⢪⢃⢙⠜⠜⢕⠧⡫⡎⣞⢼⢸⡠⠀⠀⠀⠀⠀
+;; ⠀⠀⠀⡠⣣⢳⡱⡝⡮⡪⣇⢗⡕⡧⣫⢺⢪⢣⠳⢑⠐⠀⠀⠀⠐⡝⣜⢎⢧⢫⡣⡂⠀⠀⠀
+;; ⠀⠀⡰⡕⡧⡳⣕⢝⡎⣗⢕⢇⠏⡊⠊⠌⠠⠁⠠⠀⠄⡁⢌⢤⢱⡱⣕⢝⢎⢧⢳⡹⣐⠀⠀
+;; ⠀⢌⢮⢳⡹⡜⣎⢧⢫⢎⠎⠀⠀⠄⠂⠐⢀⢂⢔⢔⢕⢎⢧⢳⢕⢽⢸⡱⡝⣎⢇⡗⣕⢅⠀
+;; ⢨⢪⡳⡕⡧⡫⡮⣪⢳⡹⡀⢀⠀⠀⠀⢁⠳⡸⡪⣎⢗⡝⣎⢧⢫⢎⢧⢳⡹⡜⣎⢞⡜⡮⡀
+;; ⡱⡕⡧⡫⣎⢗⡝⣜⢵⢕⢽⢔⡔⡔⣀⢀⠀⠀⠉⠪⡪⡺⡜⡎⡗⡝⣎⢧⢳⡱⡕⣇⢗⢵⡑
+;; ⢧⡫⡎⣗⢕⢧⡫⡺⣜⢕⢗⢵⡹⣪⢺⢢⢇⢎⢄⠄⠈⠈⠪⢳⢹⡪⡺⡜⣎⢞⡜⡮⣪⡣⣣
+;; ⢜⢮⢺⢪⡳⡕⣝⢮⢪⡳⡹⡪⠺⡘⠕⡉⠊⠨⠐⢈⠠⡢⢬⢪⢎⢮⡣⣫⡪⢮⢺⢜⢎⢮⢪
+;; ⠪⡳⡹⣪⢺⢜⢮⡪⡇⠊⠀⠂⠁⡀⠂⠠⠨⡠⡱⡜⡮⣪⢳⡹⡪⣣⢫⡲⢭⢳⡱⡣⣏⢮⠣
+;; ⠈⡗⣝⢎⢧⡫⢮⡪⡊⠀⠀⠀⠀⠀⠈⠘⠕⡝⡎⡧⣫⢪⡣⡳⣹⢸⡱⡹⡪⣣⢳⢹⡸⡜⡈
+;; ⠀⠪⡺⡸⣕⢭⡣⡇⡂⡀⡀⡀⠀⠀⠀⠀⠀⠀⠈⠘⠨⠣⡫⡺⡜⣕⢝⢎⢧⢳⡹⡜⡎⠎⠀
+;; ⠀⠀⠱⡹⡜⣎⢞⢼⡱⣕⢕⢮⢺⢜⣜⢬⢢⢅⢆⢔⢄⢄⠄⡡⠑⠱⡙⣎⢧⢳⡱⡣⡃⠁⠀
+;; ⠀⠀⠀⠘⡪⡎⣗⠵⡕⣇⢯⡪⣇⢗⣕⢵⢝⢎⢗⠝⢜⢨⢂⢆⡕⣕⢕⢵⢱⡣⡓⠅⠀⠀⠀
+;; ⠀⠀⠀⠀⠀⠱⢱⢝⢮⢺⡸⡪⣎⢮⡪⣎⢮⢪⢲⡱⣣⢳⢭⢣⡫⡪⣎⢗⢕⠕⠀⠀⠀⠀⠀
+;; ⠀⠀⠀⠀⠀⠀⠀⠁⠳⢱⢝⡜⣎⢮⢺⡸⡪⣣⢳⡹⡸⡪⡎⣇⢏⠞⠜⠈⠀⠀⠀⠀⠀⠀⠀
+;; ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠁⠊⠪⠪⢣⢳⢹⡸⡱⡕⡝⠪⠃⠃⠁⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀
+;;; Code:
+
+(package-initialize)
+(org-babel-load-file (concat user-emacs-directory "README.org"))
+
+;;; init.el ends here
+;;--------------------------------------------------------------------------------
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(custom-safe-themes
+   '("aec7b55f2a13307a55517fdf08438863d694550565dee23181d2ebd973ebd6b8"
+     default))
+ '(ergoemacs-mode t))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
+
+(wakib-keys 1)
+(global-set-key [f8] 'neotree-toggle)
+(global-set-key [f7] 'treemacs-projectile)
+(setq-default cursor-type 'bar)
+(setq-default neo-theme (if (display-graphic-p) 'nerd-icons 'arrow))
+;; (global-tab-line-mode 1)
+(use-package lsp-mode
+  :init
+  ;; set prefix for lsp-command-keymap (few alternatives - "C-l", "C-c l")
+  (setq lsp-keymap-prefix "C-l")
+  :hook (;; replace XXX-mode with concrete major-mode(e. g. python-mode)
+         (nix-mode . lsp)
+	 (fish-mode . lsp)
+         ;; if you want which-key integration
+         (lsp-mode . lsp-enable-which-key-integration))
+  :commands lsp)
+(global-set-key (kbd "C-SPC") 'company-complete)
+(global-set-key (kbd "C-/") 'comment-or-uncomment-region)
+(delete-selection-mode 1)
+(use-package all-the-icons)
+(setq centaur-tabs-style "rounded")
+(setq centaur-tabs-set-icons t)
+(setq centaur-tabs-icon-type 'all-the-icons)
+(setq centaur-tabs-set-modified-marker t)
+(use-package centaur-tabs
+  :demand
+  :config
+  (centaur-tabs-mode t)
+  :bind
+  ("C-<prior>" . centaur-tabs-backward)
+  ("C-<next>" . centaur-tabs-forward))
+
+(use-package nix-mode
+  :after lsp-mode
+  :ensure t
+  :hook
+  (nix-mode . lsp-deferred) ;; So that envrc mode will work
+  :custom
+  (lsp-disabled-clients '((nix-mode . nix-nil))) ;; Disable nil so that nixd will be used as lsp-server
+  :config
+  (setq lsp-nix-nixd-server-path "nixd"
+	lsp-nix-nixd-formatting-command [ "nixfmt" ]
+	lsp-nix-nixd-nixpkgs-expr "import <nixpkgs> { }"
+	lsp-nix-nixd-nixos-options-expr "(builtins.getFlake \"/etc/nixos/flake.nix").nixosConfigurations.nixos.options"
+	lsp-nix-nixd-home-manager-options-expr "(builtins.getFlake \"/home/alice/alysios\").nixosConfigurations.nixos.options.home-manager.users.type.getSubOptions []"))
+
+(add-hook! 'nix-mode-hook
+           ;; enable autocompletion with company
+           (setq company-idle-delay 0.1))
