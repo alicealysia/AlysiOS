@@ -34,7 +34,7 @@
     niri.homeModules.niri
     dankMaterialShell.homeModules.dankMaterialShell.default
     dankMaterialShell.homeModules.dankMaterialShell.niri
-    ({config, ...}: {
+    ({config, pkgs, ...}: {
       home.stateVersion = "25.05";
       programs.dankMaterialShell = {
         enable = true;
@@ -48,6 +48,7 @@
         enableAudioWavelength = true;      # Audio visualizer (cava)
         enableCalendarEvents = true;       # Calendar integration (khal)
         enableSystemSound = true;          # System sound effects
+        quickshell.package = pkgs.quickshell;
       };
       systemd.user.startServices = true;
       home.file.".emacs.d" = {
@@ -86,10 +87,6 @@
           package = pkgs.niri-unstable.overrideAttrs (o: {
             doCheck = false;
           });
-        };
-        programs.dankMaterialShell = {
-          enable = true;
-          quickshell.package = pkgs.quickshell; # or your custom package
         };
         programs.dankMaterialShell.greeter = {
           enable = true;
