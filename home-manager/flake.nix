@@ -79,9 +79,7 @@
         };
         nixpkgs.overlays = [
           niri.overlays.niri
-        ];
-        cachix.pull = [ "niri" ];
-        
+        ];        
         programs.niri = {
           enable = true;
           package = pkgs.niri-unstable.overrideAttrs (o: {
