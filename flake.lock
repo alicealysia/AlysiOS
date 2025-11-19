@@ -218,16 +218,17 @@
         "nixpkgs": [
           "nixpkgs"
         ],
+        "quickshell": "quickshell",
         "stylix": "stylix"
       },
       "locked": {
         "lastModified": 1,
-        "narHash": "sha256-ePUHwvt43+MDZprhI2gOAHO6+PV/NIAhDPuHxPlKW1U=",
-        "path": "/nix/store/gfc2rrh2jc8x5s8l3pmnl06xavdbxrri-source/home-manager",
+        "narHash": "sha256-e8DV9xI0kfqEv3isNXCOGbJINLonSxRYNNioXnAXB6c=",
+        "path": "/nix/store/xhd8k14phy81sqpz9ryd4lacz76m2gqc-source/home-manager",
         "type": "path"
       },
       "original": {
-        "path": "/nix/store/gfc2rrh2jc8x5s8l3pmnl06xavdbxrri-source/home-manager",
+        "path": "/nix/store/xhd8k14phy81sqpz9ryd4lacz76m2gqc-source/home-manager",
         "type": "path"
       }
     },
@@ -350,10 +351,9 @@
         "type": "github"
       },
       "original": {
-        "owner": "nixos",
-        "ref": "nixos-25.05",
-        "repo": "nixpkgs",
-        "type": "github"
+        "id": "nixpkgs",
+        "ref": "nixos-unstable",
+        "type": "indirect"
       }
     },
     "nixpkgs_3": {
@@ -366,9 +366,10 @@
         "type": "github"
       },
       "original": {
-        "id": "nixpkgs",
-        "ref": "nixos-unstable",
-        "type": "indirect"
+        "owner": "nixos",
+        "ref": "nixos-25.05",
+        "repo": "nixpkgs",
+        "type": "github"
       }
     },
     "nur": {
@@ -400,7 +401,7 @@
     },
     "quickshell": {
       "inputs": {
-        "nixpkgs": "nixpkgs_3"
+        "nixpkgs": "nixpkgs_2"
       },
       "locked": {
         "lastModified": 1763446574,
@@ -419,8 +420,7 @@
     "root": {
       "inputs": {
         "home-manager": "home-manager",
-        "nixpkgs": "nixpkgs_2",
-        "quickshell": "quickshell"
+        "nixpkgs": "nixpkgs_3"
       }
     },
     "stylix": {
