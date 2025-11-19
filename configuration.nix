@@ -1,5 +1,4 @@
 ({setupInfo, inputs, pkgs, ...}:{
-    imports = [ ./cachix.nix ];
     boot.loader.systemd-boot.enable = true;
     boot.loader.efi.canTouchEfiVariables = true;
     networking.hostName = setupInfo.hostname;

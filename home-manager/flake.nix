@@ -1,6 +1,6 @@
 {
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
+    nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-25.05";
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -66,15 +66,28 @@
         homelist = builtins.mapAttrs (name: value: import ./users/${name}/home.nix) usersDir;
         accountlist = builtins.mapAttrs (name: value: import ./users/${name}/account.nix) usersDir;
       in {
-          nixpkgs.overlays = [
-            niri.overlays.niri
+        nix.settings = {
+          substituters = [
+            "https://cache.nixos.org"
+            "https://nix-community.cachix.org"
+            "https://niri.cachix.org"
           ];
-          programs.niri = {
-            enable = true;
-            package = pkgs.niri.overrideAttrs (o: {
-              doCheck = false;
-            });
-          };
+          trusted-public-keys = [
+            "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
+            "niri.cachix.org-1:Wv0OmO7PsuocRKzfDoJ3mulSl7Z6oezYhGhR+3W2964="
+          ];
+        };
+        nixpkgs.overlays = [
+          niri.overlays.niri
+        ];
+        cachix.pull = [ "niri" ];
+        
+        programs.niri = {
+          enable = true;
+          package = pkgs.niri-unstable.overrideAttrs (o: {
+            doCheck = false;
+          });
+        };
         programs.dankMaterialShell.greeter = {
           enable = true;
           compositor.name = "niri";
