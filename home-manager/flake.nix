@@ -50,9 +50,9 @@
         enableSystemSound = true;          # System sound effects
       };
       systemd.user.startServices = true;
-      home.file.".emacs.d" = {
-        source = config.lib.file.mkOutOfStoreSymlink ./emacs;
-      };
+      # home.file.".emacs.d" = {
+      #   source = config.lib.file.mkOutOfStoreSymlink ./emacs;
+      # };
     })
     ./keyboard-shortcuts.nix
     ./variables.nix

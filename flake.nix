@@ -30,7 +30,6 @@
     nixosConfigurations = {
       "${setupInfo.hostname}" = cfg;
       "nixos" = cfg;
-      
     };
   };
 }
