@@ -5,6 +5,9 @@
       url = "./home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    quickshell = {
+      url = "https://git.outfoxxed.me/quickshell/quickshell";
+    };
   };
 
   outputs = inputs@{nixpkgs, home-manager, ...} :
