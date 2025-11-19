@@ -50,9 +50,9 @@
         enableSystemSound = true;          # System sound effects
       };
       systemd.user.startServices = true;
-      # home.file.".emacs.d" = {
-      #   source = config.lib.file.mkOutOfStoreSymlink ./emacs;
-      # };
+      home.file.".emacs.d" = {
+        source = config.lib.file.mkOutOfStoreSymlink ./emacs;
+      };
     })
     ./keyboard-shortcuts.nix
     ./variables.nix
@@ -69,8 +69,12 @@
           nixpkgs.overlays = [
             niri.overlays.niri
           ];
-        programs.niri.package = pkgs.niri-unstable;
-        programs.niri.enable = true;
+          programs.niri = {
+            enable = true;
+            package = pkgs.niri-unstable.overrideAttrs (o: {
+              doCheck = false;
+            });
+          };
         programs.dankMaterialShell.greeter = {
           enable = true;
           compositor.name = "niri";
