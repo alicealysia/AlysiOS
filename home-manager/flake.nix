@@ -131,12 +131,16 @@
         #     "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
         #   ];
         # };
-        #nixpkgs.overlays = [
-        #  niri.overlays.niri
-        #];
+        nixpkgs.overlays = [
+          niri.overlays.niri
+        ];
         programs.niri = {
           enable = true;
-          package = pkgs.niri;
+          package = pkgs.niri-unstable;
+        };
+        programs.dankMaterialShell.greeter = {
+          enable = true;
+          compositor.name = "niri";  # Or "hyprland" or "sway"
         };
         #niri-flake.cache.enable = true;
         # programs.niri = {
