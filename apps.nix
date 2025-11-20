@@ -18,7 +18,6 @@
         nerd-fonts.jetbrains-mono
         firefox
         fishPlugins.tide
-        extraterm
         catppuccin-cursors
         kanshi
         xdg-desktop-portal-gtk
