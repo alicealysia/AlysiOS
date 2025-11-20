@@ -5,15 +5,21 @@
       # e.g.
         quickshell
         emacs-pgtk
-        nemo
+        nautilus
         hyprpicker
+        xwayland-satellite-unstable
         wl-clipboard
         wayland-utils
         libsecret
+        cage
+        gamescope
         wget
         nixd
         git
         nodejs
+        nerd-fonts.noto
+        nerd-fonts.lilex
+        nerd-fonts.ubuntu
         kdePackages.konsole
         nerd-fonts.jetbrains-mono
         firefox

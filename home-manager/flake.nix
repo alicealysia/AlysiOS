@@ -29,7 +29,8 @@
     };
   };
   outputs = { home-manager, niri, dankMaterialShell, ... } : let
-  homeModules = [
+    homeModules = [
+      niri.homeModules.niri
     ({config, ...}: {
       home.stateVersion = "25.05";
       programs.dankMaterialShell = {
@@ -141,6 +142,7 @@
         programs.dankMaterialShell.greeter = {
           enable = true;
           compositor.name = "niri";  # Or "hyprland" or "sway"
+          
         };
         #niri-flake.cache.enable = true;
         # programs.niri = {
