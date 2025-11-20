@@ -80,7 +80,7 @@
         #  compositor.name = "niri";  # Or "hyprland" or "sway"
         #  
         #};
-        niri-flake.cache.enable = true;
+        niri.niri-flake.cache.enable = true;
         # programs.niri = {
         #  enable = true;
         #  package = pkgs.niri.overrideAttrs (o: {
