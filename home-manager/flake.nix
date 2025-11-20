@@ -32,6 +32,9 @@
     homeModules = [
     ({config, ...}: {
       home.stateVersion = "25.05";
+      imports = [
+        niri.homeModules.niri
+      ];
       programs.dankMaterialShell = {
         enable = true;
         systemd.enable = true;             # Systemd service for auto-start
