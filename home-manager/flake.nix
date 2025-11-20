@@ -45,7 +45,8 @@
     ./dms.nix
     ./keyboard-shortcuts.nix
     ./variables.nix
-  ];
+    ];
+    inherit niri;
   in {
     nixosModules = {
       niri = niri.nixosModules.niri;
