@@ -40,6 +40,9 @@
     dankMaterialShell.homeModules.dankMaterialShell.niri
     ({config, ...}: {
       home.stateVersion = "25.05";
+      home.packages = [
+          quickshell.packages."x86_64-linux".default
+      ];
       programs.dankMaterialShell = {
         enable = true;
         systemd.enable = true;             # Systemd service for auto-start
@@ -142,10 +145,6 @@
         nixpkgs.overlays = [
           niri.overlays.niri
         ];
-        programs.quickshell = {
-          enable = true;
-          package = quickshell.packages."x86_64-linux".default;
-        };
         #niri-flake.cache.enable = true;
         programs.niri = {
          enable = true;
