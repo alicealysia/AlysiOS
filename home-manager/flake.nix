@@ -37,6 +37,7 @@
         source = config.lib.file.mkOutOfStoreSymlink ./emacs;
       };
     })
+    stylix.homeModules.stylix
     niri.homeModules.niri
     niri.homeModules.stylix
     ./niri.nix
@@ -80,12 +81,6 @@
         #  compositor.name = "niri";  # Or "hyprland" or "sway"
         #  
         #};
-        # programs.niri = {
-        #  enable = true;
-        #  package = pkgs.niri.overrideAttrs (o: {
-        #    doCheck = false;
-        #  });
-        # };
         home-manager.sharedModules = homeModules;
         users.users = accountlist;
         home-manager.users = homelist;
