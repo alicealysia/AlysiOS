@@ -55,6 +55,7 @@
         enableAudioWavelength = true;      # Audio visualizer (cava)
         enableCalendarEvents = true;       # Calendar integration (khal)
         enableSystemSound = true;          # System sound effects
+        quickshell.package = quickshell.packages."x86_64-linux".default;
         
         default.settings = {
           theme = "dark";
