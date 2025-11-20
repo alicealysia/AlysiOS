@@ -122,6 +122,7 @@
   ];
   in {
     nixosModules = {
+      niri = niri.nixosModules.niri;
       home-manager = home-manager.nixosModules.default;
       greeter = dankMaterialShell.nixosModules.greeter;
       default = {pkgs, lib, ...} : let 
