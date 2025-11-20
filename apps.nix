@@ -14,6 +14,7 @@
         nixd
         git
         nodejs
+        kdePackages.konsole
         nerd-fonts.jetbrains-mono
         firefox
         fishPlugins.tide
