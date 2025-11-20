@@ -21,5 +21,6 @@
         catppuccin-cursors
         kanshi
         xdg-desktop-portal-gtk
+        spice-vdagent
     ];
 }

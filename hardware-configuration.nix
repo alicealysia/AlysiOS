@@ -9,9 +9,10 @@
     ];
 
   boot.initrd.availableKernelModules = [ "ata_piix" "xhci_pci" "virtio_pci" "virtio_scsi" "sr_mod" "virtio_blk" ];
-  boot.initrd.kernelModules = [ ];
+  boot.initrd.kernelModules = [ "ata_piix" "xhci_pci" "virtio_pci" "virtio_scsi" "sr_mod" "virtio_blk" ];
   boot.kernelModules = [ "kvm-amd" ];
   boot.extraModulePackages = [ ];
+  services.spice-vdagentd.enable = true;
 
   fileSystems."/" =
     { device = "/dev/disk/by-label/NIXROOT";
