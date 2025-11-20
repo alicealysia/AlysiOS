@@ -30,7 +30,7 @@
         pulse.enable = true;
     };
     nixpkgs.config.allowUnfree = true;
-    virtualisation.graphics.enable = true;
+      services.qemuGuest.enable = true;
     hardware.graphics.enable = true;
     programs.fish.enable = true;
     programs.bash.promptInit = ''

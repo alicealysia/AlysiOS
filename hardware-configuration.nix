@@ -12,8 +12,6 @@
   boot.initrd.kernelModules = [ "ahci" "xhci_pci" "virtio_pci" "virtio_blk" "sr_mod" "virtio_blk" ];
   boot.kernelModules = [ "kvm-amd" ];
   boot.extraModulePackages = [ ];
-  services.qemuGuest.enable = true;
-  services.spice-vdagentd.enable = true;
 
   fileSystems."/" =
     { device = "/dev/disk/by-label/NIXROOT";
