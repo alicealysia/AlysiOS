@@ -37,8 +37,9 @@
     ({config, ...}: {
       home.stateVersion = "25.05";
       home.packages = [
-          quickshell.packages."x86_64-linux".default
+        quickshell.packages."x86_64-linux".default
       ];
+      programs.quickshell.enable = true;
       programs.dankMaterialShell = {
         enable = true;
         systemd.enable = true;             # Systemd service for auto-start

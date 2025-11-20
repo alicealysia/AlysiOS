@@ -21,8 +21,8 @@
       ./hardware-configuration.nix
       home-manager.nixosModules.niri
       home-manager.nixosModules.home-manager
-      home-manager.nixosModules.greeter
       home-manager.nixosModules.default
+      home-manager.nixosModules.greeter
     ];
     system = "x86_64-linux";
   };
