@@ -43,6 +43,7 @@
       home.packages = [
           quickshell.packages."x86_64-linux".default
       ];
+      programs.quickshell.enabled = true;
       programs.dankMaterialShell = {
         enable = true;
         systemd.enable = true;             # Systemd service for auto-start
