@@ -1,8 +1,9 @@
-{ pkgs, ... } : {
+{ quickshell, pkgs, ... } : {
     environment.systemPackages = with pkgs; [
         # add any apps from https://search.nixos.org/packages?channel=unstable to a new line below
 
       # e.g.
+        quickshell
         emacs-pgtk
         cachix
         nautilus

@@ -5,10 +5,6 @@
       url = "github:nix-community/home-manager/release-25.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    quickshell = {
-      url = "git+https://git.outfoxxed.me/outfoxxed/quickshell";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     stylix = {
       url = "github:nix-community/stylix";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -32,14 +28,10 @@
       inputs.dgop.follows = "dgop";
     };
   };
-  outputs = { quickshell, home-manager, niri, dankMaterialShell, ... } : let
+  outputs = { home-manager, niri, dankMaterialShell, ... } : let
   homeModules = [
     ({config, ...}: {
       home.stateVersion = "25.05";
-      home.packages = [
-        quickshell.packages."x86_64-linux".default
-      ];
-      programs.quickshell.enable = true;
       programs.dankMaterialShell = {
         enable = true;
         systemd.enable = true;             # Systemd service for auto-start
