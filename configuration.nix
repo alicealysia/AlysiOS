@@ -30,10 +30,10 @@
         pulse.enable = true;
     };
     nixpkgs.config.allowUnfree = true;
-#     services.displayManager.sddm = {
-#         enable = true;
-#         wayland.enable = true;
-#     };
+     services.displayManager.sddm = {
+         enable = true;
+         wayland.enable = true;
+     };
     hardware.graphics.enable = true;
     programs.fish.enable = true;
     programs.bash.promptInit = ''
