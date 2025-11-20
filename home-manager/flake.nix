@@ -7,7 +7,7 @@
     };
     quickshell = {
       url = "git+https://git.outfoxxed.me/outfoxxed/quickshell";
-      inputs.nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-25.05";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
     stylix = {
       url = "github:nix-community/stylix";
@@ -32,18 +32,13 @@
       inputs.dgop.follows = "dgop";
     };
   };
-  outputs = { self, quickshell, home-manager, stylix, niri, dgop, dms-cli, dankMaterialShell, ... } : let
+  outputs = { quickshell, home-manager, niri, dankMaterialShell, ... } : let
   homeModules = [
-    #stylix.homeModules.stylix
-    #niri.homeModules.niri
-    dankMaterialShell.homeModules.dankMaterialShell.default
-    dankMaterialShell.homeModules.dankMaterialShell.niri
     ({config, ...}: {
       home.stateVersion = "25.05";
       home.packages = [
           quickshell.packages."x86_64-linux".default
       ];
-      programs.quickshell.enabled = true;
       programs.dankMaterialShell = {
         enable = true;
         systemd.enable = true;             # Systemd service for auto-start
@@ -56,8 +51,6 @@
         enableAudioWavelength = true;      # Audio visualizer (cava)
         enableCalendarEvents = true;       # Calendar integration (khal)
         enableSystemSound = true;          # System sound effects
-        quickshell.package = quickshell.packages."x86_64-linux".default;
-        
         default.settings = {
           theme = "dark";
           dynamicTheming = true;
@@ -118,6 +111,8 @@
         source = config.lib.file.mkOutOfStoreSymlink ./emacs;
       };
     })
+    dankMaterialShell.homeModules.dankMaterialShell.default
+    dankMaterialShell.homeModules.dankMaterialShell.niri
     ./keyboard-shortcuts.nix
     ./variables.nix
   ];
@@ -126,7 +121,7 @@
       niri = niri.nixosModules.niri;
       home-manager = home-manager.nixosModules.default;
       greeter = dankMaterialShell.nixosModules.greeter;
-      default = {pkgs, lib, ...} : let 
+      default = {pkgs, ...} : let 
         usersDir = builtins.readDir ./users;
         homelist = builtins.mapAttrs (name: value: import ./users/${name}/home.nix) usersDir;
         accountlist = builtins.mapAttrs (name: value: import ./users/${name}/account.nix) usersDir;
@@ -147,6 +142,8 @@
           niri.overlays.niri
         ];
         #niri-flake.cache.enable = true;
+        home-manager.useUserPackages = true;
+        home-manager.useGlobalPkgs = true;
         programs.niri = {
          enable = true;
          package = pkgs.niri.overrideAttrs (o: {
