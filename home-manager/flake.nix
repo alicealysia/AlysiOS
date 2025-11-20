@@ -32,13 +32,16 @@
       inputs.dgop.follows = "dgop";
     };
   };
-  outputs = { self, home-manager, stylix, niri, dgop, dms-cli, dankMaterialShell, ... } : let
+  outputs = { self, quickshell, home-manager, stylix, niri, dgop, dms-cli, dankMaterialShell, ... } : let
   homeModules = [
     stylix.homeModules.stylix
     niri.homeModules.niri
     dankMaterialShell.homeModules.dankMaterialShell.default
     dankMaterialShell.homeModules.dankMaterialShell.niri
     ({config, pkgs, ...}: {
+      home.packages = [
+        quickshell.packages."x86_64-linux".default
+      ];
       home.stateVersion = "25.05";
       programs.dankMaterialShell = {
         enable = true;
@@ -52,6 +55,61 @@
         enableAudioWavelength = true;      # Audio visualizer (cava)
         enableCalendarEvents = true;       # Calendar integration (khal)
         enableSystemSound = true;          # System sound effects
+        
+        default.settings = {
+          theme = "dark";
+          dynamicTheming = true;
+          currentThemeName = "dynamic";
+          matugenScheme = "scheme-rainbow";
+          runUserMatugenTemplates = true;
+          showWorkspaceIndex = false;
+          showWorkspaceApps = true;
+          maxWorkspaceIcons = 9;
+          dankBarLeftWidgets = [
+            {
+              id = "launcherButton";
+              enabled = true;
+            }
+            {
+              id = "clipboard";
+              enabled = true;
+            }
+            {
+              id = "notificationButton";
+              enabled = true;
+            }
+            {
+              id = "systemUpdate";
+              enabled = true;
+            }
+            {
+              id = "vpn";
+              enabled = true;
+            }
+          ];
+          dankBarCenterWidgets = [
+            {
+              id = "workspaceSwitcher";
+              enabled = true;
+            }
+          ];
+          dankBarRightWidgets = [
+            {
+              id = "systemTray";
+              enabled = true;
+            }
+            {
+              id = "controlCenterButton";
+              enabled = true;
+            }
+            {
+              id = "clock";
+              enabled = true;
+            }
+          ];
+          dockPosition = 1;
+          # Add any other settings here
+        };
       };
       systemd.user.startServices = true;
       home.file.".emacs.d" = {
