@@ -223,11 +223,11 @@
       "locked": {
         "lastModified": 1,
         "narHash": "sha256-+esI2jakUyO12Vt1OiGDRWbWbWzo1OfHz913LaNB7xU=",
-        "path": "/nix/store/6jkqgsh9jzhq584sd8wfaqpy69hdcfnb-source/home-manager",
+        "path": "/nix/store/8sipdax0il4s5bry58gjvhp1d34iba26-source/home-manager",
         "type": "path"
       },
       "original": {
-        "path": "/nix/store/6jkqgsh9jzhq584sd8wfaqpy69hdcfnb-source/home-manager",
+        "path": "/nix/store/8sipdax0il4s5bry58gjvhp1d34iba26-source/home-manager",
         "type": "path"
       }
     },
