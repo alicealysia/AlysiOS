@@ -12,7 +12,7 @@
       gaps = 4;
       focus-ring = {
         width = 2;
-        active-gradient = {
+        active.gradient = {
           from="#1C92F6";
           to = "#FF75A2";
           angle = 45;
