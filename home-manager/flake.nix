@@ -39,9 +39,6 @@
     dankMaterialShell.homeModules.dankMaterialShell.default
     dankMaterialShell.homeModules.dankMaterialShell.niri
     ({config, ...}: {
-      home.packages = [
-        quickshell.packages."x86_64-linux".default
-      ];
       home.stateVersion = "25.05";
       programs.dankMaterialShell = {
         enable = true;
