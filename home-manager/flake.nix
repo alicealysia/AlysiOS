@@ -28,34 +28,19 @@
       inputs.dgop.follows = "dgop";
     };
   };
-  outputs = { home-manager, niri, dankMaterialShell, ... } : let
+  outputs = { home-manager, stylix, niri, dankMaterialShell, ... } : let
     homeModules = [
     ({config, ...}: {
       home.stateVersion = "25.05";
-      imports = [
-        niri.homeModules.niri
-      ];
-      programs.dankMaterialShell = {
-        enable = true;
-        systemd.enable = true;             # Systemd service for auto-start
-        enableSystemMonitoring = true;     # System monitoring widgets (dgop)
-        enableClipboard = true;            # Clipboard history manager
-        enableVPN = true;                  # VPN management widget
-        enableBrightnessControl = true;    # Backlight/brightness controls
-        enableColorPicker = true;          # Color picker tool
-        enableDynamicTheming = true;       # Wallpaper-based theming (matugen)
-        enableAudioWavelength = true;      # Audio visualizer (cava)
-        enableCalendarEvents = true;       # Calendar integration (khal)
-        enableSystemSound = true;          # System sound effects
-        default.settings = ./settings.json;
-      };
       systemd.user.startServices = true;
       home.file.".emacs.d" = {
         source = config.lib.file.mkOutOfStoreSymlink ./emacs;
       };
     })
+    ./niri.nix
     dankMaterialShell.homeModules.dankMaterialShell.default
     dankMaterialShell.homeModules.dankMaterialShell.niri
+    ./dms.nix
     ./keyboard-shortcuts.nix
     ./variables.nix
   ];

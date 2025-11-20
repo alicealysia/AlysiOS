@@ -24,7 +24,7 @@
         nerd-fonts.jetbrains-mono
         firefox
         fishPlugins.tide
-        catppuccin-cursors
+        catppuccin-cursors.mochaLight
         kanshi
         xdg-desktop-portal-gtk
         spice-vdagent
