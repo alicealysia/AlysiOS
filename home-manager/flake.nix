@@ -2,7 +2,7 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-25.05";
     home-manager = {
-      url = "github:nix-community/home-manager?ref=nixos-25.05";
+      url = "github:nix-community/home-manager/release-25.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     quickshell = {
@@ -38,7 +38,7 @@
     #niri.homeModules.niri
     dankMaterialShell.homeModules.dankMaterialShell.default
     dankMaterialShell.homeModules.dankMaterialShell.niri
-    ({config, pkgs, ...}: {
+    ({config, ...}: {
       home.packages = [
         quickshell.packages."x86_64-linux".default
       ];
@@ -144,12 +144,12 @@
         nixpkgs.overlays = [
           niri.overlays.niri
         ];
-        #niri-flake.cache.enable = true;
+        niri-flake.cache.enable = true;
         programs.niri = {
-          enable = true;
-          package = pkgs.niri.overrideAttrs (o: {
-            doCheck = false;
-          });
+         enable = true;
+         package = pkgs.niri.overrideAttrs (o: {
+           doCheck = false;
+         });
         };
         home-manager.sharedModules = homeModules;
         users.users = accountlist;
