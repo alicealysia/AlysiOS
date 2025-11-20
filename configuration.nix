@@ -29,6 +29,10 @@
         alsa.support32Bit = true;
         pulse.enable = true;
     };
+    services.displayManager.sddm = {
+      enable = true;
+      wayland.enable = true;
+    };
     nixpkgs.config.allowUnfree = true;
     services.qemuGuest.enable = true;
     services.spice-vdagentd.enable = true;
