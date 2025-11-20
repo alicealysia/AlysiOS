@@ -11,7 +11,7 @@
     };
   };
 
-  outputs = inputs@{nixpkgs, home-manager, ...} :
+  outputs = inputs@{nixpkgs, home-manager, quickshell, ...} :
   let
   setupInfo = import ./setup-settings.nix;
   cfg = inputs.nixpkgs.lib.nixosSystem {

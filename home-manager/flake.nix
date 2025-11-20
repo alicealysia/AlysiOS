@@ -114,7 +114,7 @@
       niri = niri.nixosModules.niri;
       home-manager = home-manager.nixosModules.default;
       greeter = dankMaterialShell.nixosModules.greeter;
-      default = {pkgs, ...} : let 
+      default = {...} : let 
         usersDir = builtins.readDir ./users;
         homelist = builtins.mapAttrs (name: value: import ./users/${name}/home.nix) usersDir;
         accountlist = builtins.mapAttrs (name: value: import ./users/${name}/account.nix) usersDir;
@@ -135,14 +135,12 @@
           niri.overlays.niri
         ];
         #niri-flake.cache.enable = true;
-        home-manager.useUserPackages = true;
-        home-manager.useGlobalPkgs = true;
-        programs.niri = {
-         enable = true;
-         package = pkgs.niri.overrideAttrs (o: {
-           doCheck = false;
-         });
-        };
+        # programs.niri = {
+        #  enable = true;
+        #  package = pkgs.niri.overrideAttrs (o: {
+        #    doCheck = false;
+        #  });
+        # };
         home-manager.sharedModules = homeModules;
         users.users = accountlist;
         home-manager.users = homelist;
