@@ -29,7 +29,12 @@
     };
     window-rules = [
       {
-        geometry-corner-radius = 24;
+        geometry-corner-radius = {
+          bottom-left = 24;
+          bottom-right = 24;
+          top-left = 24;
+          top-right = 24;
+        };
         clip-to-geometry = true;
       }
       {
