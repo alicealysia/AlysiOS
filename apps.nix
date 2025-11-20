@@ -14,7 +14,7 @@
         nixd
         git
         nodejs
-        nerd-fonts.jetbrains
+        nerd-fonts.jetbrains-mono
         firefox
         fishPlugins.tide
         extraterm
