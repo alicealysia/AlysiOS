@@ -33,13 +33,12 @@
     ({config, ...}: {
       home.stateVersion = "25.05";
       systemd.user.startServices = true;
-      imports = [
-        niri.homeModules.niri
-      ];
       home.file.".emacs.d" = {
         source = config.lib.file.mkOutOfStoreSymlink ./emacs;
       };
     })
+    niri.homeModules.niri
+    niri.homeModules.stylix
     ./niri.nix
     dankMaterialShell.homeModules.dankMaterialShell.default
     dankMaterialShell.homeModules.dankMaterialShell.niri
@@ -81,7 +80,7 @@
         #  compositor.name = "niri";  # Or "hyprland" or "sway"
         #  
         #};
-        #niri-flake.cache.enable = true;
+        niri-flake.cache.enable = true;
         # programs.niri = {
         #  enable = true;
         #  package = pkgs.niri.overrideAttrs (o: {

@@ -19,7 +19,6 @@
       ./configuration.nix
       ./apps.nix
       ./hardware-configuration.nix
-      inputs.home-manager.nixosModules.niri
       inputs.home-manager.nixosModules.home-manager
       inputs.home-manager.nixosModules.default
       inputs.home-manager.nixosModules.greeter
