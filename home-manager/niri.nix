@@ -30,10 +30,10 @@
     window-rules = [
       {
         geometry-corner-radius = {
-          bottom-left = 24;
-          bottom-right = 24;
-          top-left = 24;
-          top-right = 24;
+          bottom-left = 24.00;
+          bottom-right = 24.00;
+          top-left = 24.00;
+          top-right = 24.00;
         };
         clip-to-geometry = true;
       }
