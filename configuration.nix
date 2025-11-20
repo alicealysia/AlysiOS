@@ -31,7 +31,7 @@
     };
     nixpkgs.config.allowUnfree = true;
     services.qemuGuest.enable = true;
-    services.spice-vdagentd = true;
+    services.spice-vdagentd.enable = true;
     hardware.graphics.enable = true;
     programs.fish.enable = true;
     programs.bash.promptInit = ''
