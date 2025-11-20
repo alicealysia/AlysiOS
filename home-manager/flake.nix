@@ -33,6 +33,9 @@
     ({config, ...}: {
       home.stateVersion = "25.05";
       systemd.user.startServices = true;
+      imports = [
+        niri.homeModules.niri
+      ];
       home.file.".emacs.d" = {
         source = config.lib.file.mkOutOfStoreSymlink ./emacs;
       };
