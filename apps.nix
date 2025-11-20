@@ -1,4 +1,4 @@
-{ quickshell, pkgs, ... } : {
+{ pkgs, ... } : {
     environment.systemPackages = with pkgs; [
         # add any apps from https://search.nixos.org/packages?channel=unstable to a new line below
 

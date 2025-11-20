@@ -11,7 +11,7 @@
     };
   };
 
-  outputs = inputs@{nixpkgs, home-manager, quickshell, ...} :
+  outputs = inputs:
   let
   setupInfo = import ./setup-settings.nix;
   cfg = inputs.nixpkgs.lib.nixosSystem {
@@ -23,10 +23,10 @@
       ./configuration.nix
       ./apps.nix
       ./hardware-configuration.nix
-      home-manager.nixosModules.niri
-      home-manager.nixosModules.home-manager
-      home-manager.nixosModules.default
-      home-manager.nixosModules.greeter
+      inputs.home-manager.nixosModules.niri
+      inputs.home-manager.nixosModules.home-manager
+      inputs.home-manager.nixosModules.default
+      inputs.home-manager.nixosModules.greeter
     ];
     system = "x86_64-linux";
   };
