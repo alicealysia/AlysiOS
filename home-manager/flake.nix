@@ -28,7 +28,7 @@
       inputs.dgop.follows = "dgop";
     };
   };
-  outputs = { home-manager, stylix, niri, dankMaterialShell, ... } : let
+  outputs = inputItems@{ home-manager, stylix, niri, dankMaterialShell, ... } : let
     homeModules = [
     ({config, ...}: {
       home.stateVersion = "25.05";
@@ -46,7 +46,7 @@
     ./keyboard-shortcuts.nix
     ./variables.nix
     ];
-    inherit niri;
+    inherit inputItems;
   in {
     nixosModules = {
       niri = niri.nixosModules.niri;
@@ -81,7 +81,7 @@
         #  compositor.name = "niri";  # Or "hyprland" or "sway"
         #  
         #};
-        niri.niri-flake.cache.enable = true;
+        inputItems.niri.niri-flake.cache.enable = true;
         # programs.niri = {
         #  enable = true;
         #  package = pkgs.niri.overrideAttrs (o: {
