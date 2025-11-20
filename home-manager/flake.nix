@@ -28,7 +28,7 @@
       inputs.dgop.follows = "dgop";
     };
   };
-  outputs = inputItems@{ home-manager, stylix, niri, dankMaterialShell, ... } : let
+  outputs = { home-manager, stylix, niri, dankMaterialShell, ... } : let
     homeModules = [
     ({config, ...}: {
       home.stateVersion = "25.05";
@@ -46,7 +46,6 @@
     ./keyboard-shortcuts.nix
     ./variables.nix
     ];
-    inherit inputItems;
   in {
     nixosModules = {
       niri = niri.nixosModules.niri;
@@ -57,18 +56,18 @@
         homelist = builtins.mapAttrs (name: value: import ./users/${name}/home.nix) usersDir;
         accountlist = builtins.mapAttrs (name: value: import ./users/${name}/account.nix) usersDir;
       in {
-        # nix.settings = {
-        #   substituters = [
-        #     "https://cache.nixos.org"
-        #     "https://nix-community.cachix.org"
-        #     "https://niri.cachix.org"
-        #   ];
-        #   trusted-public-keys = [
-        #     "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
-        #     "niri.cachix.org-1:Wv0OmO7PsuocRKzfDoJ3mulSl7Z6oezYhGhR+3W2964="
-        #     "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
-        #   ];
-        # };
+        nix.settings = {
+          substituters = [
+            "https://cache.nixos.org"
+            "https://nix-community.cachix.org"
+            "https://niri.cachix.org"
+          ];
+          trusted-public-keys = [
+            "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
+            "niri.cachix.org-1:Wv0OmO7PsuocRKzfDoJ3mulSl7Z6oezYhGhR+3W2964="
+            "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
+          ];
+        };
         nixpkgs.overlays = [
           niri.overlays.niri
         ];
@@ -81,7 +80,6 @@
         #  compositor.name = "niri";  # Or "hyprland" or "sway"
         #  
         #};
-        inputItems.niri.niri-flake.cache.enable = true;
         # programs.niri = {
         #  enable = true;
         #  package = pkgs.niri.overrideAttrs (o: {
