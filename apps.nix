@@ -5,30 +5,21 @@
       # e.g.
         quickshell
         emacs-pgtk
-        cachix
-        nautilus
+        nemo
         hyprpicker
         wl-clipboard
         wayland-utils
         libsecret
-        cage
-        gamescope
-        lunarvim
         wget
         nixd
         git
         nodejs
-        nerd-fonts.noto
-        nerd-fonts.lilex
-        nerd-fonts.ubuntu
+        nerd-fonts.jetbrains
         firefox
         fishPlugins.tide
-        kdePackages.konsole
-        vscodium
+        extraterm
         catppuccin-cursors
         kanshi
-        kubectl
-        opam
         xdg-desktop-portal-gtk
     ];
 }
