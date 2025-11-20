@@ -144,7 +144,7 @@
         nixpkgs.overlays = [
           niri.overlays.niri
         ];
-        niri-flake.cache.enable = true;
+        #niri-flake.cache.enable = true;
         programs.niri = {
          enable = true;
          package = pkgs.niri.overrideAttrs (o: {
