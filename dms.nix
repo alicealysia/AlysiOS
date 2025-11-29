@@ -1,7 +1,6 @@
 {...}: {
   programs.dankMaterialShell = {
     enable = true;
-    niri.enableSpawn = true;
     systemd.enable = true;             # Systemd service for auto-start
     enableSystemMonitoring = true;     # System monitoring widgets (dgop)
     enableClipboard = true;            # Clipboard history manager
