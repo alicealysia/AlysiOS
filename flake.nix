@@ -7,7 +7,6 @@
     };
     niri = {
       url = "github:sodiboo/niri-flake";
-      inputs.nixpkgs.follow = "nixpkgs";
     };
     dgop = {
       url = "github:AvengeMedia/dgop";
@@ -33,7 +32,7 @@
        	 inputs.niri.nixosModules.niri
           inputs.dankMaterialShell.nixosModules.greeter
           inputs.dankMaterialShell.nixosModules.dankMaterialShell
-          ./niri.nix {inputs, ...}
+          ./niri.nix ({ inherit inputs;})
           ./keyboard-shortcuts.nix
           ./dms.nix
         ];
