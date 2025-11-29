@@ -1,5 +1,4 @@
-{flakeInputs, ...}: {
-  nixpkgs.overlays = [ flakeInputs.niri.overlays.niri ];
+{...}: {
   programs.niri.settings = {
     prefer-no-csd = true;
     input.focus-follows-mouse.enable = true;
