@@ -23,17 +23,23 @@
     };
   };
 
-  outputs = inputs:{
-    nixosModules = let
+  outputs = {nixpkgs, niri, dgop, home-manager, dankMaterialShell} :
+    let
       modules = [
         {
-          _module.args.inputs = inputs;
+          _module.args.flakeInputs = {
+            inherit nixpkgs;
+            inherit niri;
+            inherit dgop;
+            inherit home-manager;
+            inherit dankMaterialShell;
+          };
         }
         ./apps.nix
-        inputs.home-manager.nixosModules.default
-        inputs.niri.nixosModules.niri
-        inputs.dankMaterialShell.nixosModules.greeter
-        inputs.dankMaterialShell.nixosModules.dankMaterialShell
+        home-manager.nixosModules.default
+        niri.nixosModules.niri
+        dankMaterialShell.nixosModules.greeter
+        dankMaterialShell.nixosModules.dankMaterialShell
         ./niri.nix
         ./keyboard-shortcuts.nix
         ./dms.nix
@@ -43,6 +49,7 @@
         systemd.user.startServices = true;
       };
     in {
+    nixosModules = {
       default = {...}: primaryModule;
       gaming = ./optional-gaming-apps.nix;
     };
