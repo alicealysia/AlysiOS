@@ -7,6 +7,7 @@
     };
     niri = {
       url = "github:sodiboo/niri-flake";
+      inputs.nixpkgs.follow = "nixpkgs";
     };
     dgop = {
       url = "github:AvengeMedia/dgop";
@@ -25,7 +26,7 @@
 
   outputs = inputs:{
     nixosModules = {
-      default = {...}:{
+      default = {inputs, ...}:{
         imports = [
           ./apps.nix
           inputs.home-manager.nixosModules.default
@@ -33,6 +34,7 @@
           inputs.dankMaterialShell.nixosModules.greeter
           inputs.dankMaterialShell.nixosModules.dankMaterialShell
           ./niri.nix
+          ./keyboard-shortcuts.nix
           ./dms.nix
         ];
         systemd.user.startServices = true;
