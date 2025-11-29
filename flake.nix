@@ -33,7 +33,6 @@
           inputs.dankMaterialShell.nixosModules.greeter
           inputs.dankMaterialShell.nixosModules.dankMaterialShell
           ./niri.nix
-          ./keyboard-shortcuts.nix
           ./dms.nix
         ];
         systemd.user.startServices = true;
