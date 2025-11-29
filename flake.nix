@@ -25,10 +25,7 @@
 
   outputs = inputs:{
     nixosModules = let
-    localInputs = inputs;
-    in {
-      default = {...}: let inputs = localInputs; in {
-        imports = [
+      modules = [
           ./apps.nix
           inputs.home-manager.nixosModules.default
        	 inputs.niri.nixosModules.niri
@@ -38,8 +35,12 @@
           ./keyboard-shortcuts.nix
           ./dms.nix
         ];
-        systemd.user.startServices = true;
-      };
+        primaryModule = {
+          imports = modules;
+          systemd.user.startServices = true;
+        };
+    in {
+      default = {...}: primaryModule;
       gaming = ./optional-gaming-apps.nix;
     };
   };
