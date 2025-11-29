@@ -33,7 +33,7 @@
        	 inputs.niri.nixosModules.niri
           inputs.dankMaterialShell.nixosModules.greeter
           inputs.dankMaterialShell.nixosModules.dankMaterialShell
-          ./niri.nix
+          ./niri.nix {inputs, ...}
           ./keyboard-shortcuts.nix
           ./dms.nix
         ];
