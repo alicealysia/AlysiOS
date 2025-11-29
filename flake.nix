@@ -23,7 +23,7 @@
     };
   };
 
-  outputs = {nixpkgs, niri, dgop, home-manager, dankMaterialShell} :
+  outputs = {nixpkgs, niri, dgop, home-manager, dankMaterialShell, ...} :
     let
       modules = [
         {
