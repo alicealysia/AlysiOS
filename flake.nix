@@ -12,7 +12,10 @@
       url = "github:AvengeMedia/dgop";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
+    home-manager = {
+      url = "github:nix-community/home-manager"
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     dankMaterialShell = {
       url = "github:AvengeMedia/DankMaterialShell";
       inputs.nixpkgs.follows = "nixpkgs";
