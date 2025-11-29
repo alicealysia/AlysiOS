@@ -30,7 +30,7 @@
         imports = [
           ./apps.nix
           inputs.home-manager.nixosModules.default
-          inputs.niri.nixosModules.niri
+       	 inputs.niri.nixosModules.niri
           inputs.dankMaterialShell.nixosModules.greeter
           inputs.dankMaterialShell.nixosModules.dankMaterialShell
           ./niri.nix
@@ -39,7 +39,7 @@
           ./dms.nix
         ];
         systemd.user.startServices = true;
-      };      
+      };
       gaming = ./optional-gaming-apps.nix;
     };
   };

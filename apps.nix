@@ -1,7 +1,6 @@
 { pkgs, ... } : {
   environment.systemPackages = with pkgs; [
     quickshell
-    emacs-pgtk
     nautilus
     hyprpicker
     xwayland-satellite-unstable
@@ -20,11 +19,9 @@
     kdePackages.konsole
     nerd-fonts.jetbrains-mono
     firefox
-    fishPlugins.tide
     catppuccin-cursors.mochaLight
     kanshi
     xdg-desktop-portal-gtk
-    spice-vdagent
   ];
   programs.fish.enable = true;
   programs.bash.promptInit = ''

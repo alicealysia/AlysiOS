@@ -15,5 +15,6 @@
         razergenie
         solaar
         polychromatic
+        input-remapper
     ];
 }
