@@ -26,19 +26,22 @@
   outputs = inputs:{
     nixosModules = let
       modules = [
-          ./apps.nix
-          inputs.home-manager.nixosModules.default
-       	 inputs.niri.nixosModules.niri
-          inputs.dankMaterialShell.nixosModules.greeter
-          inputs.dankMaterialShell.nixosModules.dankMaterialShell
-          ./niri.nix ({ inherit inputs;})
-          ./keyboard-shortcuts.nix
-          ./dms.nix
-        ];
-        primaryModule = {
-          imports = modules;
-          systemd.user.startServices = true;
-        };
+        {
+          _module.args.inputs = inputs;
+        }
+        ./apps.nix
+        inputs.home-manager.nixosModules.default
+        inputs.niri.nixosModules.niri
+        inputs.dankMaterialShell.nixosModules.greeter
+        inputs.dankMaterialShell.nixosModules.dankMaterialShell
+        ./niri.nix
+        ./keyboard-shortcuts.nix
+        ./dms.nix
+      ];
+      primaryModule = {
+        imports = modules;
+        systemd.user.startServices = true;
+      };
     in {
       default = {...}: primaryModule;
       gaming = ./optional-gaming-apps.nix;
