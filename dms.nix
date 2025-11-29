@@ -12,6 +12,5 @@
     enableAudioWavelength = true;      # Audio visualizer (cava)
     enableCalendarEvents = true;       # Calendar integration (khal)
     enableSystemSound = true;          # System sound effects
-    default.settings = ./settings.json;
   };
 }
