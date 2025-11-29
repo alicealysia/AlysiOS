@@ -24,8 +24,10 @@
   };
 
   outputs = inputs:{
-    nixosModules = {
-      default = {inputs, ...}:{
+    nixosModules = let
+    localInputs = inputs;
+    in {
+      default = {...}: let inputs = localInputs; in {
         imports = [
           ./apps.nix
           inputs.home-manager.nixosModules.default
