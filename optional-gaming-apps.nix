@@ -16,5 +16,11 @@
         solaar
         polychromatic
         input-remapper
+        openrgb
+        piper
+    # Minecraft
+        prism
+    # Emulators
+        shadps4
     ];
 }

@@ -23,14 +23,17 @@
 
   outputs = {nixpkgs, niri, dgop, home-manager, dankMaterialShell, ...} :
     let
+      flakeInputs = {
+        inherit nixpkgs;
+        inherit niri;
+        inherit dgop;
+        inherit home-manager;
+        inherit dankMaterialShell;
+      };
       modules = [
         {
-          _module.args.flakeInputs = {
-            inherit nixpkgs;
-            inherit niri;
-            inherit dgop;
-            inherit home-manager;
-            inherit dankMaterialShell;
+          _module.args = {
+            inherit flakeInputs;
           };
         }
         ./apps.nix
@@ -38,18 +41,23 @@
         niri.nixosModules.niri
         dankMaterialShell.nixosModules.greeter
         dankMaterialShell.nixosModules.dankMaterialShell
-        ./niri.nix
-        ./keyboard-shortcuts.nix
         ./dms.nix
       ];
       primaryModule = {
         imports = modules;
-        systemd.user.startServices = true;
       };
     in {
     nixosModules = {
       default = {...}: primaryModule;
       gaming = ./optional-gaming-apps.nix;
+    };
+    homeModules = {
+      default = {...}: {
+        imports = [
+          ./niri.nix
+          ./keyboard-shortcuts.nix
+        ];
+      };
     };
   };
 }
