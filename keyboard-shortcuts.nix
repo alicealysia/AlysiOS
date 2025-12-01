@@ -1,8 +1,8 @@
 { config, ... }: {
   programs.niri.settings.binds = with config.lib.niri.actions; {
     "Mod+H".action                              = show-hotkey-overlay;
-    "Mod+T".action.spawn                        = "wezterm";
-    "Mod+E".action.spawn                        = "nautilus";
+    "Mod+T".action.spawn                        = "ghostty";
+    "Mod+E".action.spawn                        = "nemo";
     "Mod+Shift+E".action.spawn                  = "firefox";
     "Mod+S".action.spawn                        = ["dms" "ipc" "spotlight" "toggle"];
     "Mod+P".action.spawn                        = ["hyprpicker" "-a"];
@@ -14,7 +14,7 @@
     "XF86AudioMute".action.spawn                = ["dms" "ipc" "audio" "mute"];
     "XF86Launch7".action.spawn                  = "kcalc";
     "Mod+Q".action                              = close-window;
-    #"Mod+Shift+S".action                        = screenshot;
+    "Mod+Shift+S".action                        = screenshot;
     "Mod+Tab".action                            = toggle-overview;
 
     "Mod+Left".action                           = focus-column-left;
