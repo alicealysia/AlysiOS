@@ -14,7 +14,7 @@
     "XF86AudioMute".action.spawn                = ["dms" "ipc" "audio" "mute"];
     "XF86Launch7".action.spawn                  = "kcalc";
     "Mod+Q".action                              = close-window;
-    "Mod+Shift+S".action                        = screenshot;
+    #"Mod+Shift+S".action                        = screenshot;
     "Mod+Tab".action                            = toggle-overview;
 
     "Mod+Left".action                           = focus-column-left;

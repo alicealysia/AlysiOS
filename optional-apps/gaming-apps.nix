@@ -1,0 +1,28 @@
+{ pkgs, ... } : {
+	programs.steam.enable = true;
+    environment.systemPackages = with pkgs; [
+    # Gaming Frontends
+#        steam
+        heroic
+    # Steam Helpers
+        steamcmd
+        steam-tui
+        steam-run
+        steamtinkerlaunch
+        gamescope
+        protonplus
+    # Peripheral Managers
+        razer-cli
+        razergenie
+        solaar
+        polychromatic
+        input-remapper
+        openrgb
+        piper
+    # Minecraft
+        prism
+    # Emulators
+        shadps4
+        gamescope
+    ];
+}
