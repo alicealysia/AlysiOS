@@ -1,7 +1,6 @@
 { pkgs, ... } : {
   environment.systemPackages = with pkgs; [
     hyprpicker
-    nemo
     systemdgenie
     kdePackages.kmenuedit
     grsync
